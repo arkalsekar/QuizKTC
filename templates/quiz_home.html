@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}
+
+{% endblock title %}
+
+{% block body %}
+
+   <div class="container my-3">
+        <h3> {{ quiz }} </h3>
+        <form>
+    {% for q in que %}
+        <label for="inputPassword5" class="form-label">Question No {{ q.id }} </label>
+        <p> {{ q.question_str }} </p>
+    </form>
+    {% endfor %}
+</div>
+
+{% endblock body %}

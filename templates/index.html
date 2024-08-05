@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+{% for q in quiz %}
+
+
+<div class="container my-3">
+    <div class="card">
+        <div class="card-header">
+          Quiz
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ q }}</h5>
+          <a href="/quiz/{{q.quiz_id}}" class="btn btn-success">Attempt Quiz</a>
+        </div>
+      </div>
+  </div>
+
+{% endfor %}
+
+{% endblock body %}
+    
