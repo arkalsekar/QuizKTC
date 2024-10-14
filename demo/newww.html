@@ -1,12 +1,9 @@
-{% extends "base.html" %}
-{% block title %}
-QuizKTC - Quiz Web of Kalsekar Technical Campus
-{% endblock title %}
-
-{% block head %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>QuizKTC - Quiz Web of Kalsekar Technical Campus</title>
     <style>
         /* Reset CSS */
         * {
@@ -18,18 +15,18 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         /* Global Styles */
         body {
             font-family: Arial, sans-serif;
-            background-color:rgb(255, 220, 175);
-            color: #451515;
+            background-color: #0a3d62;
+            color: #ffffff;
             line-height: 1.6;
         }
 
         a {
-            color: #06464b;
+            color: #ffffff;
             text-decoration: none;
         }
 
         a:hover {
-            color: #f1f8fa;
+            color: #0a84ff;
             transition: color 0.3s ease;
         }
 
@@ -38,7 +35,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: #dbdfe0ed;
+            background-color: #003c6c;
             padding: 20px;
             position: fixed;
             width: 100%;
@@ -66,7 +63,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
             display: block;
             width: 0%;
             height: 2px;
-            background: #5081b2;
+            background: #0a84ff;
             transition: width 0.3s;
             position: absolute;
             bottom: -5px;
@@ -98,7 +95,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
             justify-content: space-between;
             padding: 100px 50px;
             min-height: 100vh;
-            background-image: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Flovepik.com%2Fimages%2Fbackgrounds-quiz.html&psig=AOvVaw1RylpdxKZt6k3QQDT10Deb&ust=1726771528816000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCi3rOTzYgDFQAAAAAdAAAAABAE');
+            background-image: url('https://via.placeholder.com/800x600');
             background-size: cover;
             background-position: center;
             animation: fadeIn 2s ease-in-out;
@@ -121,7 +118,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
 
         .home-content .btn {
             padding: 10px 20px;
-            background-color: #38618a;
+            background-color: #0a84ff;
             border: none;
             color: #ffffff;
             cursor: pointer;
@@ -131,7 +128,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         }
 
         .home-content .btn:hover {
-            background-color:rgb(206, 173, 131);
+            background-color: #095cb5;
         }
 
         /* Features Section */
@@ -155,7 +152,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         .features ul li {
             margin-bottom: 20px;
             font-size: 18px;
-            background-color:rgb(206, 173, 131);
+            background-color: #003c6c;
             padding: 15px;
             border-radius: 8px;
             transition: transform 0.3s ease, background-color 0.3s ease;
@@ -163,7 +160,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
 
         .features ul li:hover {
             transform: scale(1.05);
-            background-color: #295988;
+            background-color: #0a84ff;
         }
 
         .features ul li b {
@@ -191,7 +188,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         }
 
         .upcoming-item {
-            background-color:rgb(206, 173, 131);
+            background-color: #003c6c;
             padding: 20px;
             width: 30%;
             margin-bottom: 20px;
@@ -225,7 +222,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         }
 
         .team-member {
-            background-color:rgb(206, 173, 131);
+            background-color: #003c6c;
             padding: 20px;
             width: 23%;
             margin-bottom: 20px;
@@ -256,13 +253,13 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
 
         .social-icons a {
             margin: 0 5px;
-            color: #2f5984;
+            color: #0a84ff;
             font-size: 18px;
             transition: color 0.3s ease;
         }
 
         .social-icons a:hover {
-            color: #4a9cf4;
+            color: #095cb5;
         }
 
         /* Contact Us Section */
@@ -291,12 +288,12 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         .thank-you {
             margin-top: 30px;
             font-size: 20px;
-            color: #34679a;
+            color: #0a84ff;
         }
 
         /* Footer */
         footer {
-            background-color: rgb(206, 173, 131);
+            background-color: #003c6c;
             text-align: center;
             padding: 20px;
             position: relative;
@@ -367,7 +364,7 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
             }
 
             .hamburger.active div {
-                background-color: #b0d1f3;
+                background-color: #0a84ff;
                 transform: rotate(45deg);
                 position: relative;
             }
@@ -377,18 +374,13 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
             }
 
             .hamburger.active div:nth-child(3) {
-                background-color:rgb(206, 173, 131);
+                background-color: #0a84ff;
                 transform: rotate(-45deg);
                 position: relative;
             }
         }
     </style>
-
-
-{% endblock head %}
-
-{% block body %}
-
+</head>
 <body>
     <div class="navbar">
         <div class="logo">QuizKTC</div>
@@ -409,12 +401,11 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
     <section class="home" id="home">
         <div class="home-content">
             <h1>Welcome to QuizKTC</h1>
-            <p>"Welcome to QuizKTC, the ultimate platform to test your knowledge and challenge your intellect. Dive into fun, interactive quizzes across a wide range of topics and see how you rank!"</p>
+            <p>Your go-to platform for interactive and challenging quizzes.</p>
             <button class="btn">Get Started</button>
             <button class="btn">Learn More</button>
         </div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvugFX9zxpU1nZUCJC8MkANA4XPXVU4s6hzQ&s" alt="Quiz Image" 
-                 style="border: 5px solid #ccc; box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3); border-radius: 10px;" height="350px" width="350px" >
+        <img src="https://via.placeholder.com/400x300" alt="Quiz Image">
     </section>
 
     <section class="features" id="features">
@@ -422,66 +413,31 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         <ul>
             <li>
                 <b>User Registration</b>
-                <p>User Registration in quizKTC allows students to create accounts, providing access to personalized quizzes, progress tracking, and tailored learning experiences.
-
-
-
-
-
-
-                </p>
+                <p>Sign up and track your progress.</p>
             </li>
             <li>
                 <b>Category-Based Quizzes</b>
-                <p>Category-Based Quizzes in quizKTC organize quizzes by subject or topic, enabling students to focus on specific areas of study for targeted learning.
-
-
-
-
-
-
-                </p>
+                <p>Choose quizzes based on different categories.</p>
             </li>
             <li>
                 <b>Difficulty Levels</b>
-                <p>Difficulty Levels in quizKTC classify quizzes as easy, medium, or hard to match student skill levels and offer progressive challenges.
-
-
-
-
-
-
-                </p>
+                <p>Select quizzes of various difficulty levels.</p>
             </li>
             <li>
                 <b>Timed Quizzes</b>
-                <p>Implement timed quizzes on quizKTC with countdown timers, auto-submission, and instant feedback to enhance student engagement and assessment accuracy.
-
-
-
-
-
-
-                </p>
+                <p>Challenge yourself with timed quizzes.</p>
             </li>
             <li>
                 <b>Leaderboards</b>
-                <p>quizKTC display the top-performing students, ranking them based on their quiz scores, completion times, and overall progress, fostering healthy competition and motivation among participants.</p>
+                <p>Compare your scores with others.</p>
             </li>
             <li>
                 <b>Instant Feedback</b>
-                <p>Instant Feedback in quizKTC provides real-time responses to students' answers, helping them immediately understand their performance and improve learning.
-
-
-
-
-
-
-                </p>
+                <p>Receive immediate feedback on your answers.</p>
             </li>
             <li>
                 <b>Progress Tracking</b>
-                <p>quizKTC allows students to monitor their performance over time, providing insights into completed quizzes, scores, areas of improvement, and progress toward their learning goals.</p>
+                <p>Monitor your progress over time.</p>
             </li>
         </ul>
     </section>
@@ -490,18 +446,16 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         <h2>Upcoming Features</h2>
         <div class="upcoming-container">
             <div class="upcoming-item">
-                <h3>Advanced Proctoring Tools
-                </h3>
-                <p>Implement features to prevent cheating during online exams, ensuring fair and accurate assessment.
-                    </p>
+                <h3>Feature 1</h3>
+                <p>Details about the upcoming feature 1.</p>
             </div>
             <div class="upcoming-item">
-                <h3>AI-Powered Question Generation:</h3>
-                <p>AI algorithms to generate personalized quiz questions based on the student’s learning pattern, providing a tailored quiz experience.</p>
+                <h3>Feature 2</h3>
+                <p>Details about the upcoming feature 2.</p>
             </div>
             <div class="upcoming-item">
-                <h3>Collaborative Learning Tools:</h3>
-                <p>Features like discussion forums, study groups, and peer-to-peer interaction, encouraging collaborative learning and knowledge sharing among students.</p>
+                <h3>Feature 3</h3>
+                <p>Details about the upcoming feature 3.</p>
             </div>
         </div>
     </section>
@@ -510,36 +464,36 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
         <h2>About Us</h2>
         <div class="team-container">
             <div class="team-member">
-                <img src="https://arkalsekar.in/assets/Image.jpg" alt="Abdul REhman Kalsekar">
-                <h3>Abdul Rehman Kalsekar</h3>
-                <p>He is working on a a back end and a GUI of a website QuizKTC.</p>
+                <img src="https://via.placeholder.com/100" alt="Team Member 1">
+                <h3>Member 1</h3>
+                <p>Role and description of team member 1.</p>
                 <div class="social-icons">
                     <a href="#">LinkedIn</a>
                     <a href="#">Twitter</a>
                 </div>
             </div>
             <div class="team-member">
-                <img src="C:\Users\DELL\Pictures\arsan.jpg" alt="Shaikh Mohd Arsan">
-                <h3>Shaikh Mohd Arsan</h3>
-                <p>Workin on a landing page and full website for the detailed information of our mini project, also make a ppt for 01 presentation as well. </p>
+                <img src="https://via.placeholder.com/100" alt="Team Member 2">
+                <h3>Member 2</h3>
+                <p>Role and description of team member 2.</p>
                 <div class="social-icons">
                     <a href="#">LinkedIn</a>
                     <a href="#">Twitter</a>
                 </div>
             </div>
             <div class="team-member">
-                <img src="C:\Users\DELL\Pictures\adnan1.png" alt="Ansari Mohd Adnan">
-                <h3>Ansari Mohd Adnan</h3>
-                <p>He work on website as well as ppt along side arsan and help him making and in suggestions etc.</p>
+                <img src="https://via.placeholder.com/100" alt="Team Member 3">
+                <h3>Member 3</h3>
+                <p>Role and description of team member 3.</p>
                 <div class="social-icons">
                     <a href="#">LinkedIn</a>
                     <a href="#">Twitter</a>
                 </div>
             </div>
             <div class="team-member">
-                <img src="C:\Users\DELL\Pictures\affan.jpg" alt="Shaikh Mohd Affan">
-                <h3>Shaikh Mohammad Affan</h3>
-                <p>He is doing a supervision on all work and help each member with there difficulties and make sure to work must be get done on time.</p>
+                <img src="https://via.placeholder.com/100" alt="Team Member 4">
+                <h3>Member 4</h3>
+                <p>Role and description of team member 4.</p>
                 <div class="social-icons">
                     <a href="#">LinkedIn</a>
                     <a href="#">Twitter</a>
@@ -570,6 +524,5 @@ QuizKTC - Quiz Web of Kalsekar Technical Campus
             hamburger.classList.toggle('active');
         }
     </script>
-
-
-{% endblock body %}
+</body>
+</html>

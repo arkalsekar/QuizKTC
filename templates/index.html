@@ -2,6 +2,8 @@
 
 {% block body %}
 
+{% if quiz != null %}
+
 {% for q in quiz %}
 
 
@@ -12,12 +14,14 @@
         </div>
         <div class="card-body">
           <h5 class="card-title">{{ q }}</h5>
+          <p class="card-text"> {{ q.desc }} </p>
           <a href="/quiz/{{q.quiz_id}}" class="btn btn-success">Attempt Quiz</a>
         </div>
       </div>
   </div>
 
 {% endfor %}
+{% endif %}
 
 {% endblock body %}
     

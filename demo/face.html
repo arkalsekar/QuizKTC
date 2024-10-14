@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection</title>
+    <script defer src="https://cdn.jsdelivr.net/npm/face-api.js"></script>
+    <style>
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <video id="video" width="640" height="480" autoplay></video>
+    <canvas id="overlay"></canvas>
+
+    <script>
+        const video = document.getElementById('video');
+        const canvas = document.getElementById('overlay');
+        const displaySize = { width: video.width, height: video.height };
+		
+        // Access the user's webcam
+        navigator.mediaDevices.getUserMedia({ video: {} })
+          .then((stream) => {
+              video.srcObject = stream;
+          })
+          .catch(err => console.error("Error accessing camera: ", err));
+
+        // Load the face detection models
+        Promise.all([
+	    // faceapi.nets.tinyFaceDetector.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models'),
+            // faceapi.nets.tinyFaceDetector.loadFromUri('/models/'),  // or a CDN link if using external
+            faceapi.nets.faceLandmark68Net.loadFromUri('/models/face_landmark_68_tiny/'),
+            // faceapi.nets.faceRecognitionNet.loadFromUri('https://cdn.jsdelivr.net/npm/face-api.js/models')
+        ]).then(startFaceDetection);
+
+        // Function to start face detection
+        function startFaceDetection() {
+            // Resize canvas to the video size
+            faceapi.matchDimensions(canvas, displaySize);
+
+            // Set an interval to detect faces at regular intervals
+            setInterval(async () => {
+                // Detect faces in the video stream
+                const detections = await faceapi.detectAllFaces(video, 
+                    new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks();
+
+                // Resize the detected boxes and landmarks to match video dimensions
+                const resizedDetections = faceapi.resizeResults(detections, displaySize);
+
+                // Clear previous drawings on the canvas
+                canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+
+                // Draw face boxes and landmarks on the canvas
+                faceapi.draw.drawDetections(canvas, resizedDetections);
+                faceapi.draw.drawFaceLandmarks(canvas, resizedDetections);
+            }, 100);  // Runs detection every 100 milliseconds
+        }
+    </script>
+</body>
+</html>
