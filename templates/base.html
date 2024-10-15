@@ -8,7 +8,7 @@
     {% block head %}{% endblock head %}
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Quiz KTC</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,17 +33,65 @@
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
-            <button type="button" class="btn btn-success mx-3" data-bs-toggle="modal"
+            {% comment %} <button type="button" class="btn btn-success mx-3" data-bs-toggle="modal"
             data-bs-target="#signupModal">Signup</button>
             <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-            data-bs-target="#loginModal">Login</button>
+            data-bs-target="#loginModal">Login</button> {% endcomment %}
+
+
+            {% if user.is_authenticated %}
+            <!-- <a class="navbar-brand" href="/">{{user.username}}</a> -->
+            <div class="dropdown mx-2">
+              <button class="btn btn-secondary dropdown-toggle" type="button" id="user-details" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                {{user.username}}
+              </button>
+              
+              <a href="/logout" class="btn btn-danger mx-2"> Logout</a>
+    
+    
+              <ul class="dropdown-menu" aria-labelledby="user-details">
+                <li><a class="dropdown-item" href="/logout">Logout</a></li>
+              </ul>
+            </div>
+    
+    
+            {% endif %}
+    
+    
+            <!-- User is not authenticated so Display Normal Login and Signup -->
+            {% if not user.is_authenticated %}
+            <!-- Button trigger Signup modal -->
+            <button type="button" class="btn btn-success mx-2" data-bs-toggle="modal"
+              data-bs-target="#signupModal">Signup</button>
+            <!-- Button trigger Login modal -->
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+            {% endif %}
+
+
+
           </div>
         </div>
       </nav>
 
+  <!-- For Displaying Messages to the Users-->
 
+  {% for message in messages %}
+  <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
 
-  <!-- Signup Modal -->
+    <h4 class="alert-heading">Message !
+      <button type="button" class="btn-close float-right" data-bs-dismiss="alert" aria-label="Close"></button>
+    </h4>
+
+    <p> {{message}} </p>
+    <hr>
+  </div>
+  {% endfor %}
+
+  
+  
+  
+      <!-- Signup Modal -->
   <div class="modal fade" id="signupModal" tabindex="-1" aria-labelledby="signupModal" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">

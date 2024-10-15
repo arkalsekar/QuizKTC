@@ -47,9 +47,10 @@ class Answer(models.Model):
         return self.quiz.name
 
 # Model for Submitted Quiz
-class SubmittedQuiz(models.Model):
+class QuizSubmitted(models.Model):
     quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
-    score = models.IntegerField(null=True, blank=True)
+    userSubmitted = models.ForeignKey(User, on_delete=models.CASCADE)
+    score = models.IntegerField(null=True, blank=True, default=0)
 
     def __str__(self):
-        return self.quiz.name
+        return str(self.userSubmitted)

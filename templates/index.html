@@ -8,17 +8,22 @@
 
 
 <div class="container my-3">
-    <div class="card">
-        <div class="card-header">
-          Quiz
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">{{ q }}</h5>
-          <p class="card-text"> {{ q.desc }} </p>
-          <a href="/quiz/{{q.quiz_id}}" class="btn btn-success">Attempt Quiz</a>
-        </div>
-      </div>
+  
+  
+  <div class="card">
+    <div class="card-header">
+      Quiz
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{ q }}</h5>
+      <p class="card-text"> {{ q.desc }} </p>
+        {% comment %} <button href="/quiz/{{q.quiz_id}}" class="btn btn-success">Attempt Quiz</button> {% endcomment %}
+        <a href="/quiz/{{q.quiz_id}}" class="btn btn-success">Attempt Quiz</a>
+
+        {% comment %} <p> You canonot submit the quiz as you have submitted and your score is {{ submittedQuiz.score }}</p> {% endcomment %}
+    </div>
   </div>
+</div>
 
 {% endfor %}
 {% endif %}
